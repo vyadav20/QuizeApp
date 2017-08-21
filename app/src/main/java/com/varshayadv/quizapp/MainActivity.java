@@ -6,24 +6,30 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import static android.R.attr.checkBoxPreferenceStyle;
 import static android.R.attr.id;
 
 public class MainActivity extends AppCompatActivity {
-
+    CheckBox eightFiveSix,eightFiveZero;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
        }
        public void TheAnswer(View View){
-           CheckBox eightFiveSix=(CheckBox) findViewById(R.id.first_question_option1);
+
+
+           eightFiveSix=(CheckBox) findViewById(R.id.first_question_option1);
            boolean haseightFiveSix=eightFiveSix.isChecked();
-           CheckBox eightFiveZero=(CheckBox) findViewById(R.id.first_question_option2);
+
+            eightFiveZero=(CheckBox) findViewById(R.id.first_question_option2);
            boolean haseightFiveZero=eightFiveZero.isChecked();
-           if (eightFiveSix.isChecked()){
-               eightFiveZero.setChecked(false);
-           }
-           else if(eightFiveZero.isChecked()){
+
+
+          if (eightFiveSix.isChecked()) {
+              eightFiveZero.setChecked(false);
+          }
+           if(eightFiveZero.isChecked()){
                eightFiveSix.setChecked(false);
            }
            String ansMsg=andAnswer(haseightFiveSix,haseightFiveZero);
@@ -31,10 +37,10 @@ public class MainActivity extends AppCompatActivity {
        }
        private String andAnswer(boolean aEightFiveSix , boolean aEightFiveZero ){
            String msg="";
-           if(aEightFiveSix) {
+           if((aEightFiveSix)) {
                msg = "wrong" ;
            }
-           if(aEightFiveZero){
+           if((aEightFiveZero)){
                msg="Right";
            }
            return msg;
